@@ -234,7 +234,7 @@ public class userCREATE extends javax.swing.JInternalFrame {
         personal.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         personal.setForeground(new java.awt.Color(255, 255, 255));
         personal.setText("Personal Information");
-        jPanel2.add(personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 180, 30));
+        jPanel2.add(personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 30));
 
         welcome14.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome14.setForeground(new java.awt.Color(255, 255, 255));
@@ -288,7 +288,7 @@ public class userCREATE extends javax.swing.JInternalFrame {
         });
         jPanel2.add(register_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 160, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 470));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 780, 470));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 470));
 
@@ -342,7 +342,7 @@ public class userCREATE extends javax.swing.JInternalFrame {
 
         // Validation checks
         if (isAllFieldsEmpty()) {
-            errorMessage.append("Please fill out the registration form.\n");
+            errorMessage.append("Please fill out the form.\n");
         } else {
             if (firstNameText.isEmpty()) {
                 errorMessage.append("First Name cannot be empty.\n");
@@ -402,7 +402,7 @@ public class userCREATE extends javax.swing.JInternalFrame {
             pst.executeUpdate();
 
             // Success message
-            JOptionPane.showMessageDialog(this, "Registration Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Added Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
 
             // Clear fields after registration
             firstname.setText("");
@@ -413,10 +413,6 @@ public class userCREATE extends javax.swing.JInternalFrame {
             email.setText("");
             password.setText("");
 
-            // Redirect to login page
-            LogIn loginPage = new LogIn();
-            loginPage.setVisible(true);
-            this.dispose();
 
         } catch (SQLException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);

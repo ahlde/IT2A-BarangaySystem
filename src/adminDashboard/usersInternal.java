@@ -4,6 +4,7 @@ package adminDashboard;
 import Config.User;
 import Config.connectDb;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -272,7 +273,7 @@ public class usersInternal extends javax.swing.JInternalFrame {
                 connectDb db = new connectDb(); // Create an instance of dbConnector
                 Connection conn = db.getConnection(); // Get database connection
 
-                String query = "UPDATE users SET status = 'Activate' WHERE user_id = ?";
+                String query = "UPDATE users SET status = 'Active' WHERE user_id = ?";
                 PreparedStatement pstmt = conn.prepareStatement(query);
                 pstmt.setInt(1, selectedUserId);
 
@@ -302,18 +303,23 @@ public class usersInternal extends javax.swing.JInternalFrame {
 
     private void addPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPanelMouseClicked
 
-        userCREATE ad = new userCREATE(); // Create the new internal frame
+       userCREATE ad = new userCREATE(); // Create the new internal frame
 
         JDesktopPane desktopPane = this.getDesktopPane(); // Get the parent DesktopPane
 
         if (desktopPane != null) { // Check if it's not null before using it
             desktopPane.add(ad); // Add the internal frame to the desktop pane
-            ad.setVisible(true); // Show the frame
+
+            // Set the size to fit the parent pane
+            ad.setSize(desktopPane.getWidth(), desktopPane.getHeight());
+            ad.setPreferredSize(new Dimension(desktopPane.getWidth(), desktopPane.getHeight()));
 
             // Center the internal frame
             int x = (desktopPane.getWidth() - ad.getWidth()) / 2;
             int y = (desktopPane.getHeight() - ad.getHeight()) / 2;
             ad.setLocation(x, y);
+
+            ad.setVisible(true); // Show the frame
 
             try {
                 ad.setSelected(true); // Bring it to front
@@ -337,9 +343,11 @@ public class usersInternal extends javax.swing.JInternalFrame {
 
     private void editPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editPanelMouseClicked
 
-       int selectedUserId = getSelectedUserId(); // Get selected user's ID
+        int selectedRow = users.getSelectedRow(); // Get the selected row
 
-        if (selectedUserId != -1) {
+        if (selectedRow != -1) {
+            String selectedUsername = users.getValueAt(selectedRow, 4).toString(); // Get username from column index 4
+
             connectDb connect = new connectDb();
             Connection conn = connect.getConnection();
 
@@ -348,42 +356,47 @@ public class usersInternal extends javax.swing.JInternalFrame {
                 return;
             }
 
-            try {
-                String query = "SELECT first_name, middle_name, last_name, email, contact_number, username, role, password FROM users WHERE user_id = ?";
-                PreparedStatement pstmt = conn.prepareStatement(query);
-                pstmt.setInt(1, selectedUserId);
-                ResultSet rs = pstmt.executeQuery();
+           try {
+            // Retrieve user details using username
+            String query = "SELECT first_name, middle_name, last_name, email, contact_number, role, password FROM users WHERE username = ?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, selectedUsername);
+            ResultSet rs = pstmt.executeQuery();
 
-                if (rs.next()) {
-                    // Retrieve user details
-                    String firstname = rs.getString("first_name");
-                    String middlename = rs.getString("middle_name");
-                    String lastname = rs.getString("last_name");
-                    String em = rs.getString("email");
-                    String contact = rs.getString("contact_number");
-                    String user = rs.getString("username");
-                    String role = rs.getString("role");
-                    String pass = rs.getString("password"); 
+            if (rs.next()) {
+                String firstname = rs.getString("first_name");
+                String middlename = rs.getString("middle_name");
+                String lastname = rs.getString("last_name");
+                String email = rs.getString("email");
+                String contact = rs.getString("contact_number");
+                String role = rs.getString("role");
+                String password = rs.getString("password");
 
-                    userEDIT updateForm = new userEDIT(selectedUserId, firstname, middlename, lastname, em, contact, user, role, pass);
-                    JDesktopPane desktopPane = User.getInstance().getDesktopPane();
+                // Open update form with all user details
+                userEDIT updateForm = new userEDIT(selectedUsername, firstname, middlename, lastname, email, contact, role, password);
+                JDesktopPane desktopPane = this.getDesktopPane();
+
+                if (desktopPane != null) {
                     desktopPane.add(updateForm);
-                    updateForm.setUserData(selectedUserId, firstname, middlename, lastname, em, contact, user, role, pass);
+                    updateForm.setSize(desktopPane.getWidth(), desktopPane.getHeight());
+                    updateForm.setLocation((desktopPane.getWidth() - updateForm.getWidth()) / 2,
+                            (desktopPane.getHeight() - updateForm.getHeight()) / 2);
                     updateForm.setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(this, "User not found.");
+                    updateForm.setSelected(true);
                 }
-
-                // Close resources
-                rs.close();
-                pstmt.close();
-                conn.close();
-
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "User not found!", "Error", JOptionPane.ERROR_MESSAGE);
             }
+
+            rs.close();
+            pstmt.close();
+            conn.close();
+
+        } catch (SQLException | java.beans.PropertyVetoException e) {
+            JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
         } else {
-            JOptionPane.showMessageDialog(this, "Please select a User to Edit.");
+            JOptionPane.showMessageDialog(this, "Please select a User to Edit.", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_editPanelMouseClicked
 

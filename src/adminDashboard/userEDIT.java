@@ -16,14 +16,38 @@ import javax.swing.JOptionPane;
 public class userEDIT extends javax.swing.JInternalFrame {
 
     private Connection conn;
-    private String editingUsername; 
     
-    public userEDIT() {
+    private String editingUsername;
+    private String firstnameStr; 
+    private String middlenameStr; 
+    private String lastnameStr; 
+    private String emailStr; 
+    private String contactStr;
+    private String roleStr; 
+    private String passStr;
+    
+    public userEDIT(String username, String firstName, String middleName, String lastName, String email, String contact, String role, String password) {
         initComponents();
+        this.editingUsername = username;
+        this.firstnameStr = firstName; 
+        this.middlenameStr = middleName;
+        this.lastnameStr = lastName;
+        this.emailStr = email;
+        this.contactStr = contact;
+        this.roleStr = role;
+        this.passStr = password;
+        populateFields();
     }
 
-    userEDIT(int selectedUserId, String firstname, String middlename, String lastname, String em, String contact, String user, String role, String pass) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void populateFields() {
+        user.setText(editingUsername);
+        firstname.setText(firstnameStr); 
+        middlename.setText(middlenameStr);
+        lastname.setText(lastnameStr);
+        em.setText(emailStr);
+        contact.setText(contactStr);
+        role.setSelectedItem(roleStr);
+        pass.setText(passStr);
     }
     
     private boolean isUsernameTaken(String username) {
@@ -152,38 +176,30 @@ public class userEDIT extends javax.swing.JInternalFrame {
             }
         }
 
-
-    
-    public userEDIT(String username) {  // Accept username to edit
-        initComponents();
-        conn = new connectDb().getConnection();
-        this.editingUsername = username;
-        loadUserDetails();  // Fetch and display user data
-    }
-    
-    private void loadUserDetails() {
-        String sql = "SELECT firstname, middlename, lastname, contact, email, username, role FROM users WHERE username = ?";
-        try (PreparedStatement pst = conn.prepareStatement(sql)) {
-            pst.setString(1, editingUsername);
-            try (ResultSet rs = pst.executeQuery()) {
-                if (rs.next()) {
-                    firstname.setText(rs.getString("firstname"));
-                    middlename.setText(rs.getString("middlename"));
-                    lastname.setText(rs.getString("lastname"));
-                    contact.setText(rs.getString("contact"));
-                    em.setText(rs.getString("email"));
-                    user.setText(rs.getString("username"));
-                    role.setSelectedItem(rs.getString("role"));
-                } else {
-                    JOptionPane.showMessageDialog(this, "User not found!", "Error", JOptionPane.ERROR_MESSAGE);
-                    this.dispose(); // Close the form if the user doesn't exist
-                }
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Database error!", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+//    
+//     private void loadUserDetails() {
+//        String sql = "SELECT firstname, middlename, lastname, contact, email, username, role FROM users WHERE username = ?";
+//        try (PreparedStatement pst = conn.prepareStatement(sql)) {
+//            pst.setString(1, editingUsername);
+//            try (ResultSet rs = pst.executeQuery()) {
+//                if (rs.next()) {
+//                    firstname.setText(rs.getString("firstname")); // Assuming firstName is the correct text field name
+//                    middlename.setText(rs.getString("middlename")); // Assuming middleName is the correct text field name
+//                    lastname.setText(rs.getString("lastname")); // Assuming lastName is the correct text field name
+//                    contact.setText(rs.getString("contact")); // Assuming contactNumber is the correct text field name
+//                    em.setText(rs.getString("email")); // Assuming Email is the correct text field name
+//                    user.setText(rs.getString("username")); // Assuming userName is the correct text field name
+//                    role.setSelectedItem(rs.getString("role")); // Assuming Role is the correct combo box name
+//                } else {
+//                    JOptionPane.showMessageDialog(this, "User not found!", "Error", JOptionPane.ERROR_MESSAGE);
+//                    this.dispose(); // Close the form if the user doesn't exist
+//                }
+//            }
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "Database error!", "Error", JOptionPane.ERROR_MESSAGE);
+//        }
+//    }
     
     private void saveChanges() {
         try {
@@ -201,8 +217,8 @@ public class userEDIT extends javax.swing.JInternalFrame {
             String newPassword = new String(pass.getPassword()).trim();
 
             // Validate required fields
-            if (newFirstName.isEmpty() || newLastName.isEmpty() || newEmail.isEmpty() || 
-                newUsername.isEmpty() || newRole.isEmpty()) {
+            if (newFirstName.isEmpty() || newLastName.isEmpty() || newEmail.isEmpty() ||
+                    newUsername.isEmpty() || newRole.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Please fill in all required fields!", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
@@ -234,6 +250,12 @@ public class userEDIT extends javax.swing.JInternalFrame {
                 ps.setString(6, newRole);
                 ps.setString(7, newUsername);
             } else {
+                // Hash the new password before updating
+                String hashedPassword = hashPassword(newPassword);
+                if (hashedPassword == null) {
+                    return; // Hashing failed, don't proceed with update
+                }
+
                 // Update including password change
                 query = "UPDATE users SET first_name=?, middle_name=?, last_name=?, email=?, contact_number=?, role=?, password=? WHERE username=?";
                 ps = conn.prepareStatement(query);
@@ -243,7 +265,7 @@ public class userEDIT extends javax.swing.JInternalFrame {
                 ps.setString(4, newEmail);
                 ps.setString(5, newContact);
                 ps.setString(6, newRole);
-                ps.setString(7, newPassword);
+                ps.setString(7, hashedPassword); // Use the hashed password
                 ps.setString(8, newUsername);
             }
 
@@ -380,7 +402,7 @@ public class userEDIT extends javax.swing.JInternalFrame {
         personal.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         personal.setForeground(new java.awt.Color(255, 255, 255));
         personal.setText("Personal Information");
-        jPanel2.add(personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 180, 30));
+        jPanel2.add(personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 30));
 
         welcome14.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome14.setForeground(new java.awt.Color(255, 255, 255));
