@@ -13,12 +13,18 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class userCREATE extends javax.swing.JInternalFrame {
 
     
     public userCREATE() {
         initComponents();
+        
+        // Remove border
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
+        bi.setNorthPane(null);
     }
     
     private boolean isUsernameTaken(String username) {
@@ -158,28 +164,28 @@ public class userCREATE extends javax.swing.JInternalFrame {
         welcome2.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome2.setForeground(new java.awt.Color(255, 255, 255));
         welcome2.setText("Last Name");
-        jPanel2.add(welcome2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 180, 30));
+        jPanel2.add(welcome2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 180, 30));
 
         lastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastnameActionPerformed(evt);
             }
         });
-        jPanel2.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 200, 40));
+        jPanel2.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 40));
 
         firstname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstnameActionPerformed(evt);
             }
         });
-        jPanel2.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 200, 40));
+        jPanel2.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 200, 40));
 
         middlename.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 middlenameActionPerformed(evt);
             }
         });
-        jPanel2.add(middlename, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 200, 40));
+        jPanel2.add(middlename, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 200, 40));
 
         welcome6.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         welcome6.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,77 +196,77 @@ public class userCREATE extends javax.swing.JInternalFrame {
         welcome7.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         welcome7.setForeground(new java.awt.Color(255, 255, 255));
         welcome7.setText("Contact Details");
-        jPanel2.add(welcome7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 180, 30));
+        jPanel2.add(welcome7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 180, 30));
 
         welcome8.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome8.setForeground(new java.awt.Color(255, 255, 255));
         welcome8.setText("First Name");
-        jPanel2.add(welcome8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 180, 30));
+        jPanel2.add(welcome8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 180, 30));
 
         welcome9.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome9.setForeground(new java.awt.Color(255, 255, 255));
         welcome9.setText("Middle Name");
-        jPanel2.add(welcome9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 180, 30));
+        jPanel2.add(welcome9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 180, 30));
 
         welcome10.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         welcome10.setForeground(new java.awt.Color(255, 255, 255));
         welcome10.setText("Log In Credentials");
-        jPanel2.add(welcome10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 180, 30));
+        jPanel2.add(welcome10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 180, 30));
 
         welcome11.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome11.setForeground(new java.awt.Color(255, 255, 255));
         welcome11.setText("Email");
-        jPanel2.add(welcome11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 180, 30));
+        jPanel2.add(welcome11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 180, 30));
 
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
             }
         });
-        jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 200, 40));
+        jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 200, 40));
 
         welcome12.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome12.setForeground(new java.awt.Color(255, 255, 255));
         welcome12.setText("Contact Number");
-        jPanel2.add(welcome12, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 180, 30));
+        jPanel2.add(welcome12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 180, 30));
 
         contact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contactActionPerformed(evt);
             }
         });
-        jPanel2.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 200, 40));
+        jPanel2.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 200, 40));
 
         personal.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         personal.setForeground(new java.awt.Color(255, 255, 255));
         personal.setText("Personal Information");
-        jPanel2.add(personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 30));
+        jPanel2.add(personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 200, 30));
 
         welcome14.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome14.setForeground(new java.awt.Color(255, 255, 255));
         welcome14.setText("Role");
-        jPanel2.add(welcome14, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 180, 30));
+        jPanel2.add(welcome14, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 180, 30));
 
         welcome15.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome15.setForeground(new java.awt.Color(255, 255, 255));
         welcome15.setText("Username");
-        jPanel2.add(welcome15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 180, 30));
+        jPanel2.add(welcome15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 180, 30));
 
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
             }
         });
-        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 200, 40));
+        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 200, 40));
 
         welcome16.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome16.setForeground(new java.awt.Color(255, 255, 255));
         welcome16.setText("Password");
-        jPanel2.add(welcome16, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, 180, 30));
+        jPanel2.add(welcome16, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 180, 30));
 
         role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Select a role -", "Admin", "Barangay Captain", "Purok Leader" }));
-        jPanel2.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 200, 40));
-        jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 200, 40));
+        jPanel2.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 200, 40));
+        jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 200, 40));
 
         back_button.setBackground(new java.awt.Color(255, 255, 255));
         back_button.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -273,7 +279,7 @@ public class userCREATE extends javax.swing.JInternalFrame {
                 back_buttonMouseClicked(evt);
             }
         });
-        jPanel2.add(back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 160, 40));
+        jPanel2.add(back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 160, 40));
 
         register_button.setBackground(new java.awt.Color(255, 255, 255));
         register_button.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -286,11 +292,11 @@ public class userCREATE extends javax.swing.JInternalFrame {
                 register_buttonMouseClicked(evt);
             }
         });
-        jPanel2.add(register_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 160, 40));
+        jPanel2.add(register_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 160, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 780, 470));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 740, 520));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 470));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

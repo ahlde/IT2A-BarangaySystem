@@ -53,15 +53,15 @@ public class LogIn extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 102, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        loginPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 600));
+        loginPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 600));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo_bg.png"))); // NOI18N
-        loginPanel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 90, 130));
+        loginPanel.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 90, 130));
 
         login.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         login.setText("LOG IN");
-        loginPanel.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, 180, 70));
+        loginPanel.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 200, 180, 70));
 
         errorlabelUser.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         loginPanel.add(errorlabelUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 280, 20));
@@ -77,7 +77,7 @@ public class LogIn extends javax.swing.JFrame {
                 usernameActionPerformed(evt);
             }
         });
-        loginPanel.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 300, 40));
+        loginPanel.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 300, 40));
 
         errorlabelPass.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         loginPanel.add(errorlabelPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 440, 280, 20));
@@ -88,15 +88,15 @@ public class LogIn extends javax.swing.JFrame {
                 passwordFocusLost(evt);
             }
         });
-        loginPanel.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 300, 40));
+        loginPanel.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 300, 40));
 
         user.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         user.setText("Username");
-        loginPanel.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 300, 20));
+        loginPanel.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 300, 20));
 
         pwl1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         pwl1.setText("Password");
-        loginPanel.add(pwl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 300, 20));
+        loginPanel.add(pwl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 300, 20));
 
         login_button.setBackground(new java.awt.Color(39, 76, 119));
         login_button.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -119,11 +119,11 @@ public class LogIn extends javax.swing.JFrame {
         });
         login_button.add(llogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 60, 40));
 
-        loginPanel.add(login_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 480, 300, 40));
+        loginPanel.add(login_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, 300, 40));
 
         usl2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         usl2.setText("Don't have an account?");
-        loginPanel.add(usl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, 140, 20));
+        loginPanel.add(usl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 530, 140, 20));
 
         register.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         register.setForeground(new java.awt.Color(39, 76, 119));
@@ -134,7 +134,7 @@ public class LogIn extends javax.swing.JFrame {
                 registerMouseClicked(evt);
             }
         });
-        loginPanel.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 530, 120, 20));
+        loginPanel.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 120, 20));
 
         getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
 
@@ -193,7 +193,7 @@ public class LogIn extends javax.swing.JFrame {
                             // Redirect based on role
                             if ("Admin".equalsIgnoreCase(roleFromDB)) {
                                 new adminDash().setVisible(true);
-                            } else if ("Captain".equalsIgnoreCase(roleFromDB)) {
+                            } else if ("Barangay Captain".equalsIgnoreCase(roleFromDB)) {
                                 new captainDash().setVisible(true);  // Redirect to Captain Dashboard
                             } else {
                                 //new UserDash(userId).setVisible(true);  // Default user dashboard

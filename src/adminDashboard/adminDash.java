@@ -23,9 +23,16 @@ public class adminDash extends javax.swing.JFrame {
         dash.setVisible(true);
     }
     
-    Color hoverColor = new Color (255,102,0);
+    private void showProfile() {
+        profilesInternal prof = new profilesInternal();
+        mydesktop.add(prof);
+        prof.setVisible(true);
+    }
+    
+    
+    Color hoverColor = new Color (255,0,51);
     Color navColor = new Color (255,102,51);
-  
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -37,8 +44,8 @@ public class adminDash extends javax.swing.JFrame {
         welcome4 = new javax.swing.JLabel();
         dashPanel = new javax.swing.JPanel();
         dashboard = new javax.swing.JLabel();
-        userPanel = new javax.swing.JPanel();
-        users = new javax.swing.JLabel();
+        profilePanel = new javax.swing.JPanel();
+        profile = new javax.swing.JLabel();
         residentsPanel = new javax.swing.JPanel();
         residents = new javax.swing.JLabel();
         requestPanel = new javax.swing.JPanel();
@@ -47,6 +54,8 @@ public class adminDash extends javax.swing.JFrame {
         issuance = new javax.swing.JLabel();
         logoutPanel = new javax.swing.JPanel();
         logout = new javax.swing.JLabel();
+        userPanel = new javax.swing.JPanel();
+        users1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         mydesktop = new javax.swing.JDesktopPane();
 
@@ -95,27 +104,27 @@ public class adminDash extends javax.swing.JFrame {
 
         jPanel2.add(dashPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 170, -1));
 
-        userPanel.setBackground(new java.awt.Color(255, 102, 51));
-        userPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        profilePanel.setBackground(new java.awt.Color(255, 102, 51));
+        profilePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                userPanelMouseClicked(evt);
+                profilePanelMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                userPanelMouseEntered(evt);
+                profilePanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                userPanelMouseExited(evt);
+                profilePanelMouseExited(evt);
             }
         });
-        userPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        profilePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        users.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        users.setForeground(new java.awt.Color(255, 255, 255));
-        users.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        users.setText("Manage Users");
-        userPanel.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 130, 40));
+        profile.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        profile.setForeground(new java.awt.Color(255, 255, 255));
+        profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        profile.setText("Profile");
+        profilePanel.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 130, 40));
 
-        jPanel2.add(userPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 170, -1));
+        jPanel2.add(profilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 170, -1));
 
         residentsPanel.setBackground(new java.awt.Color(255, 102, 51));
         residentsPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -137,7 +146,7 @@ public class adminDash extends javax.swing.JFrame {
         residents.setText("Manage Residents");
         residentsPanel.add(residents, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 150, 40));
 
-        jPanel2.add(residentsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 170, -1));
+        jPanel2.add(residentsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 170, -1));
 
         requestPanel.setBackground(new java.awt.Color(255, 102, 51));
         requestPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -159,7 +168,7 @@ public class adminDash extends javax.swing.JFrame {
         request.setText("Request");
         requestPanel.add(request, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 130, 40));
 
-        jPanel2.add(requestPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 170, -1));
+        jPanel2.add(requestPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 170, -1));
 
         issuancePanel.setBackground(new java.awt.Color(255, 102, 51));
         issuancePanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -181,7 +190,7 @@ public class adminDash extends javax.swing.JFrame {
         issuance.setText("Issuance");
         issuancePanel.add(issuance, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 130, 40));
 
-        jPanel2.add(issuancePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 170, -1));
+        jPanel2.add(issuancePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 170, -1));
 
         logoutPanel.setBackground(new java.awt.Color(153, 51, 0));
         logoutPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -205,6 +214,28 @@ public class adminDash extends javax.swing.JFrame {
 
         jPanel2.add(logoutPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, 140, -1));
 
+        userPanel.setBackground(new java.awt.Color(255, 102, 51));
+        userPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userPanelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                userPanelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                userPanelMouseExited(evt);
+            }
+        });
+        userPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        users1.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        users1.setForeground(new java.awt.Color(255, 255, 255));
+        users1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        users1.setText("Manage Users");
+        userPanel.add(users1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 130, 40));
+
+        jPanel2.add(userPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 170, -1));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 610));
 
         jPanel5.setBackground(new java.awt.Color(255, 102, 51));
@@ -212,18 +243,7 @@ public class adminDash extends javax.swing.JFrame {
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 730, 80));
 
         mydesktop.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout mydesktopLayout = new javax.swing.GroupLayout(mydesktop);
-        mydesktop.setLayout(mydesktopLayout);
-        mydesktopLayout.setHorizontalGroup(
-            mydesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
-        );
-        mydesktopLayout.setVerticalGroup(
-            mydesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
-        );
-
+        mydesktop.setLayout(new java.awt.BorderLayout());
         jPanel1.add(mydesktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 730, 520));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
@@ -270,17 +290,17 @@ public class adminDash extends javax.swing.JFrame {
         residentsPanel.setBackground(navColor);
     }//GEN-LAST:event_residentsPanelMouseExited
 
-    private void userPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userPanelMouseClicked
-        showUser();
-    }//GEN-LAST:event_userPanelMouseClicked
+    private void profilePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilePanelMouseClicked
+       showProfile();
+    }//GEN-LAST:event_profilePanelMouseClicked
 
-    private void userPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userPanelMouseEntered
-        userPanel.setBackground(hoverColor);
-    }//GEN-LAST:event_userPanelMouseEntered
+    private void profilePanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilePanelMouseEntered
+        profilePanel.setBackground(hoverColor);
+    }//GEN-LAST:event_profilePanelMouseEntered
 
-    private void userPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userPanelMouseExited
-        userPanel.setBackground(navColor);
-    }//GEN-LAST:event_userPanelMouseExited
+    private void profilePanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilePanelMouseExited
+        profilePanel.setBackground(navColor);
+    }//GEN-LAST:event_profilePanelMouseExited
 
     private void dashPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashPanelMouseClicked
         // TODO add your handling code here:
@@ -317,6 +337,18 @@ public class adminDash extends javax.swing.JFrame {
     private void issuancePanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_issuancePanelMouseExited
         issuancePanel.setBackground(navColor);
     }//GEN-LAST:event_issuancePanelMouseExited
+
+    private void userPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userPanelMouseClicked
+        showUser();
+    }//GEN-LAST:event_userPanelMouseClicked
+
+    private void userPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userPanelMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userPanelMouseEntered
+
+    private void userPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userPanelMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userPanelMouseExited
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -362,12 +394,14 @@ public class adminDash extends javax.swing.JFrame {
     private javax.swing.JLabel logout;
     private javax.swing.JPanel logoutPanel;
     private javax.swing.JDesktopPane mydesktop;
+    private javax.swing.JLabel profile;
+    private javax.swing.JPanel profilePanel;
     private javax.swing.JLabel request;
     private javax.swing.JPanel requestPanel;
     private javax.swing.JLabel residents;
     private javax.swing.JPanel residentsPanel;
     private javax.swing.JPanel userPanel;
-    private javax.swing.JLabel users;
+    private javax.swing.JLabel users1;
     private javax.swing.JLabel welcome4;
     // End of variables declaration//GEN-END:variables
 }

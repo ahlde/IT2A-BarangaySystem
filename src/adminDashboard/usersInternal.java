@@ -49,7 +49,7 @@ public class usersInternal extends javax.swing.JInternalFrame {
 
     }
     
-    Color hoverColor = new Color (255,102,0);
+    Color hoverColor = new Color (255,0,51);
     Color navColor = new Color (255,102,51);
 
    private void showUser() {
@@ -147,7 +147,7 @@ public class usersInternal extends javax.swing.JInternalFrame {
         ));
         paneHolder.setViewportView(users);
 
-        jPanel1.add(paneHolder, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 780, 310));
+        jPanel1.add(paneHolder, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 700, 310));
 
         activatePanel.setBackground(new java.awt.Color(255, 102, 51));
         activatePanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -163,13 +163,13 @@ public class usersInternal extends javax.swing.JInternalFrame {
         });
         activatePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        activate.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
+        activate.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         activate.setForeground(new java.awt.Color(255, 255, 255));
         activate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         activate.setText("Activate");
         activatePanel.add(activate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 40));
 
-        jPanel1.add(activatePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 110, 40));
+        jPanel1.add(activatePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 110, 40));
 
         addPanel.setBackground(new java.awt.Color(255, 102, 51));
         addPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -185,13 +185,13 @@ public class usersInternal extends javax.swing.JInternalFrame {
         });
         addPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        add.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
+        add.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         add.setForeground(new java.awt.Color(255, 255, 255));
         add.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add.setText("ADD");
         addPanel.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 40));
 
-        jPanel1.add(addPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 110, 40));
+        jPanel1.add(addPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 110, 40));
 
         editPanel.setBackground(new java.awt.Color(255, 102, 51));
         editPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -207,13 +207,13 @@ public class usersInternal extends javax.swing.JInternalFrame {
         });
         editPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        edit.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
+        edit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         edit.setForeground(new java.awt.Color(255, 255, 255));
         edit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         edit.setText("EDIT");
         editPanel.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 40));
 
-        jPanel1.add(editPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 110, 40));
+        jPanel1.add(editPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 110, 40));
 
         deletePanel.setBackground(new java.awt.Color(255, 102, 51));
         deletePanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -229,13 +229,13 @@ public class usersInternal extends javax.swing.JInternalFrame {
         });
         deletePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        delete.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
+        delete.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         delete.setForeground(new java.awt.Color(255, 255, 255));
         delete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         delete.setText("DELETE");
         deletePanel.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 40));
 
-        jPanel1.add(deletePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 110, 40));
+        jPanel1.add(deletePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 110, 40));
 
         refreshPanel.setBackground(new java.awt.Color(255, 102, 51));
         refreshPanel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -252,15 +252,15 @@ public class usersInternal extends javax.swing.JInternalFrame {
         refreshPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         refresh.setBackground(new java.awt.Color(255, 102, 51));
-        refresh.setFont(new java.awt.Font("Century", 1, 14)); // NOI18N
+        refresh.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         refresh.setForeground(new java.awt.Color(255, 255, 255));
         refresh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         refresh.setText("REFRESH");
         refreshPanel.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 40));
 
-        jPanel1.add(refreshPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 110, 40));
+        jPanel1.add(refreshPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 110, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 490));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

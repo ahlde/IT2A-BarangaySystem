@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class userEDIT extends javax.swing.JInternalFrame {
 
@@ -28,6 +29,12 @@ public class userEDIT extends javax.swing.JInternalFrame {
     
     public userEDIT(String username, String firstName, String middleName, String lastName, String email, String contact, String role, String password) {
         initComponents();
+        
+        // Remove border
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        BasicInternalFrameUI bi = (BasicInternalFrameUI) this.getUI();
+        bi.setNorthPane(null);
+        
         this.editingUsername = username;
         this.firstnameStr = firstName; 
         this.middlenameStr = middleName;
@@ -175,31 +182,6 @@ public class userEDIT extends javax.swing.JInternalFrame {
                 pass.setText(""); // Be careful with passwords!
             }
         }
-
-//    
-//     private void loadUserDetails() {
-//        String sql = "SELECT firstname, middlename, lastname, contact, email, username, role FROM users WHERE username = ?";
-//        try (PreparedStatement pst = conn.prepareStatement(sql)) {
-//            pst.setString(1, editingUsername);
-//            try (ResultSet rs = pst.executeQuery()) {
-//                if (rs.next()) {
-//                    firstname.setText(rs.getString("firstname")); // Assuming firstName is the correct text field name
-//                    middlename.setText(rs.getString("middlename")); // Assuming middleName is the correct text field name
-//                    lastname.setText(rs.getString("lastname")); // Assuming lastName is the correct text field name
-//                    contact.setText(rs.getString("contact")); // Assuming contactNumber is the correct text field name
-//                    em.setText(rs.getString("email")); // Assuming Email is the correct text field name
-//                    user.setText(rs.getString("username")); // Assuming userName is the correct text field name
-//                    role.setSelectedItem(rs.getString("role")); // Assuming Role is the correct combo box name
-//                } else {
-//                    JOptionPane.showMessageDialog(this, "User not found!", "Error", JOptionPane.ERROR_MESSAGE);
-//                    this.dispose(); // Close the form if the user doesn't exist
-//                }
-//            }
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//            JOptionPane.showMessageDialog(this, "Database error!", "Error", JOptionPane.ERROR_MESSAGE);
-//        }
-//    }
     
     private void saveChanges() {
         try {
@@ -326,109 +308,109 @@ public class userEDIT extends javax.swing.JInternalFrame {
         welcome2.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome2.setForeground(new java.awt.Color(255, 255, 255));
         welcome2.setText("Last Name");
-        jPanel2.add(welcome2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 180, 30));
+        jPanel2.add(welcome2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 180, 30));
 
         lastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastnameActionPerformed(evt);
             }
         });
-        jPanel2.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 200, 40));
+        jPanel2.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 200, 40));
 
         firstname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstnameActionPerformed(evt);
             }
         });
-        jPanel2.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 200, 40));
+        jPanel2.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 200, 40));
 
         middlename.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 middlenameActionPerformed(evt);
             }
         });
-        jPanel2.add(middlename, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 200, 40));
+        jPanel2.add(middlename, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 200, 40));
 
         welcome6.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         welcome6.setForeground(new java.awt.Color(255, 255, 255));
         welcome6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         welcome6.setText("UPDATE ");
-        jPanel2.add(welcome6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 250, 60));
+        jPanel2.add(welcome6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 250, 60));
 
         welcome7.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         welcome7.setForeground(new java.awt.Color(255, 255, 255));
         welcome7.setText("Contact Details");
-        jPanel2.add(welcome7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 180, 30));
+        jPanel2.add(welcome7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 180, 30));
 
         welcome8.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome8.setForeground(new java.awt.Color(255, 255, 255));
         welcome8.setText("First Name");
-        jPanel2.add(welcome8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 180, 30));
+        jPanel2.add(welcome8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 180, 30));
 
         welcome9.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome9.setForeground(new java.awt.Color(255, 255, 255));
         welcome9.setText("Middle Name");
-        jPanel2.add(welcome9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 180, 30));
+        jPanel2.add(welcome9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 180, 30));
 
         welcome10.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         welcome10.setForeground(new java.awt.Color(255, 255, 255));
         welcome10.setText("Log In Credentials");
-        jPanel2.add(welcome10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 180, 30));
+        jPanel2.add(welcome10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 180, 30));
 
         welcome11.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome11.setForeground(new java.awt.Color(255, 255, 255));
         welcome11.setText("Email");
-        jPanel2.add(welcome11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 180, 30));
+        jPanel2.add(welcome11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 180, 30));
 
         em.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emActionPerformed(evt);
             }
         });
-        jPanel2.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 200, 40));
+        jPanel2.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 200, 40));
 
         welcome12.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome12.setForeground(new java.awt.Color(255, 255, 255));
         welcome12.setText("Contact Number");
-        jPanel2.add(welcome12, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 180, 30));
+        jPanel2.add(welcome12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 180, 30));
 
         contact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contactActionPerformed(evt);
             }
         });
-        jPanel2.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 200, 40));
+        jPanel2.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 200, 40));
 
         personal.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         personal.setForeground(new java.awt.Color(255, 255, 255));
         personal.setText("Personal Information");
-        jPanel2.add(personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 30));
+        jPanel2.add(personal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 200, 30));
 
         welcome14.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome14.setForeground(new java.awt.Color(255, 255, 255));
         welcome14.setText("Role");
-        jPanel2.add(welcome14, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 180, 30));
+        jPanel2.add(welcome14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 180, 30));
 
         welcome15.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome15.setForeground(new java.awt.Color(255, 255, 255));
         welcome15.setText("Username");
-        jPanel2.add(welcome15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 180, 30));
+        jPanel2.add(welcome15, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 180, 30));
 
         user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userActionPerformed(evt);
             }
         });
-        jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 200, 40));
+        jPanel2.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 200, 40));
 
         welcome16.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         welcome16.setForeground(new java.awt.Color(255, 255, 255));
         welcome16.setText("Password");
-        jPanel2.add(welcome16, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, 180, 30));
+        jPanel2.add(welcome16, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 180, 30));
 
         role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Select a role -", "Admin", "Barangay Captain", "Purok Leader" }));
-        jPanel2.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 200, 40));
-        jPanel2.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 200, 40));
+        jPanel2.add(role, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 200, 40));
+        jPanel2.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 200, 40));
 
         back_button.setBackground(new java.awt.Color(255, 255, 255));
         back_button.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -441,7 +423,7 @@ public class userEDIT extends javax.swing.JInternalFrame {
                 back_buttonMouseClicked(evt);
             }
         });
-        jPanel2.add(back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 160, 40));
+        jPanel2.add(back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 160, 40));
 
         save_button.setBackground(new java.awt.Color(255, 255, 255));
         save_button.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -454,11 +436,11 @@ public class userEDIT extends javax.swing.JInternalFrame {
                 save_buttonMouseClicked(evt);
             }
         });
-        jPanel2.add(save_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 160, 40));
+        jPanel2.add(save_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 160, 40));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 460));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 520));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 450));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -146,10 +146,8 @@ public class Register extends javax.swing.JFrame {
         regsiter_button = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         welcome = new javax.swing.JLabel();
-        welcome3 = new javax.swing.JLabel();
         welcome4 = new javax.swing.JLabel();
         welcome5 = new javax.swing.JLabel();
-        welcome1 = new javax.swing.JLabel();
         login = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -289,27 +287,17 @@ public class Register extends javax.swing.JFrame {
         welcome.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         welcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         welcome.setText("BARANGAY CERTIFY");
-        registerPanel.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 280, 50));
-
-        welcome3.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        welcome3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        welcome3.setText("to");
-        registerPanel.add(welcome3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 160, 40));
+        registerPanel.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 280, 50));
 
         welcome4.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         welcome4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         welcome4.setText("Welcome ");
-        registerPanel.add(welcome4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 250, 60));
+        registerPanel.add(welcome4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 280, 60));
 
-        welcome5.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        welcome5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         welcome5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        welcome5.setText("Bringing Your ");
-        registerPanel.add(welcome5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 180, 40));
-
-        welcome1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        welcome1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        welcome1.setText("Community Closer!");
-        registerPanel.add(welcome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 240, 40));
+        welcome5.setText("Bringing Your Community Closer!");
+        registerPanel.add(welcome5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 290, 40));
 
         login.setBackground(new java.awt.Color(255, 102, 51));
         login.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -322,7 +310,7 @@ public class Register extends javax.swing.JFrame {
                 loginMouseClicked(evt);
             }
         });
-        registerPanel.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, 160, 40));
+        registerPanel.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 160, 40));
 
         getContentPane().add(registerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
 
@@ -505,7 +493,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> role;
     private javax.swing.JTextField username;
     private javax.swing.JLabel welcome;
-    private javax.swing.JLabel welcome1;
     private javax.swing.JLabel welcome10;
     private javax.swing.JLabel welcome11;
     private javax.swing.JLabel welcome12;
@@ -513,7 +500,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel welcome15;
     private javax.swing.JLabel welcome16;
     private javax.swing.JLabel welcome2;
-    private javax.swing.JLabel welcome3;
     private javax.swing.JLabel welcome4;
     private javax.swing.JLabel welcome5;
     private javax.swing.JLabel welcome6;
