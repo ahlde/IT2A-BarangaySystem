@@ -57,4 +57,17 @@ public class connectDb {
             System.err.println("Error closing connection: " + ex.getMessage());
         }
     }
+    
+    // --- Logs
+    
+    public void logAction (String username, String action, String details) {
+        
+        String sql = "INSERT INTO system_logs (username, action, details) VALUES ('" + username + "', '" + action + "', '" + details + "')";
+        
+        if(insertData(sql) == 0) {
+            System.out.println("Failed to insert log entry.");
+        } else {
+            System.out.println("Log entry successfully created.");
+        }
+    }
 }

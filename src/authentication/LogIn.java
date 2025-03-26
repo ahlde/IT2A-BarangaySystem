@@ -164,6 +164,7 @@ public class LogIn extends javax.swing.JFrame {
 
         if (user.isEmpty() || pass.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in both fields.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+            db.logAction(user, "Login Error", "User login attempt failed.");
         } else {
             connectDb db = new connectDb();
             Connection con = db.getConnection();

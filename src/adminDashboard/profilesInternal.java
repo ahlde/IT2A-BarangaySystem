@@ -29,9 +29,6 @@ public class profilesInternal extends javax.swing.JInternalFrame {
             connectDb db = new connectDb();
             Connection conn = db.getConnection();
 
-            // Debugging: Print userId
-            System.out.println("User ID: " + userId);
-
             // Query to get first_name and last_name separately
             String query = "SELECT first_name, last_name FROM users WHERE user_id = ?";
             PreparedStatement ps = conn.prepareStatement(query);
@@ -41,10 +38,6 @@ public class profilesInternal extends javax.swing.JInternalFrame {
             if (rs.next()) {
                 String firstName = rs.getString("first_name");
                 String lastName = rs.getString("last_name");
-
-                // Debugging: Print retrieved values
-                System.out.println("First Name: " + firstName);
-                System.out.println("Last Name: " + lastName);
 
                 if (firstName == null || lastName == null) {
                     firstname.setText("Unknown User");
